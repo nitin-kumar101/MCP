@@ -12,8 +12,8 @@ class RAGClient:
     async def run_demo(self):
         """Run a comprehensive demo of the RAG system"""
         async with sse_client(url=self.server_url) as streams:
-        async with ClientSession(*streams) as session:
-            await session.initialize()
+            async with ClientSession(*streams) as session:
+                await session.initialize()
 
                 print("🚀 RAG System Demo Starting...")
                 print("=" * 50)
@@ -44,7 +44,7 @@ class RAGClient:
     async def _list_tools(self, session):
         """List all available tools"""
         print("\n📋 Available Tools:")
-            tools = await session.list_tools()
+        tools = await session.list_tools()
         for tool in tools.tools:
             print(f"  - {tool.name}: {tool.description}")
     
@@ -159,8 +159,8 @@ class RAGClient:
         """Demo resource functionality"""
         print("\n📦 Resources Demo:")
 
-            # List available resources
-            resources = await session.list_resources()
+        # List available resources
+        resources = await session.list_resources()
         print("  Available resources:")
         for resource in resources.resources:
             print(f"    - {resource.uri}: {resource.description}")
@@ -180,8 +180,8 @@ class RAGClient:
         """Demo prompt functionality"""
         print("\n💬 Prompts Demo:")
 
-            # List available prompts
-            prompts = await session.list_prompts()
+        # List available prompts
+        prompts = await session.list_prompts()
         print("  Available prompts:")
         for prompt in prompts.prompts:
             print(f"    - {prompt.name}: {prompt.description}")
